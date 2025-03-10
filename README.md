@@ -1,4 +1,4 @@
-# apz-pzpi-22-10-ivchenko-artur
+# apz-pzpi-22-10-ivchenko-artur  
  ПЗПІ-22-10  
  Івченко Артур Володимирович  
  Тема доповіді ПЗ1  
