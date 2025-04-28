@@ -1,0 +1,456 @@
+﻿Міністерство освіти і науки України
+Харківський національний університет радіоелектроніки
+Кафедра програмної інженерії
+
+
+
+
+Практична робота №1
+з дисципліни: «Архітектура програмного забезпечення»
+
+
+
+
+Виконав: 							Перевірив:
+ст. гр. ПЗПІ-22-10 					cт. викладач Сокорчук І. П.
+Івченко А. В.
+
+
+
+
+
+
+Харків 2025
+1 ІСТОРІЯ ЗМІН
+
+     Зміни в документі нотуються до таблиці 1.1.
+     Таблиця 1.1 – Історія змін
+№ДатаВерсія звітуОпис змін та виправлень123.04.20250.1Створено титулку та розділ   «Історія змін».223.04.20250.2Створено розділ «Завдання».323.04.20250.3Створено розділ «Опис виконаної роботи».423.04.20250.4Створено розділ «Висновки».526.04.20250.5Додано «Додаток А».626.04.20250.6Додано «Додаток Б».726.04.20250.7Додано «Додаток В».
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+2 ЗАВДАННЯ
+
+1. Підготувати доповідь на тему: «Патерн проєктування «Стан»»
+2. Створити та оформити слайди презентації доповіді
+3. Створити та опублікувати на YouTube відеозапис доповіді
+4. Оформити та завантажити на dl.nure.ua звіт до виконаної роботи
+5. При потребі створити та налаштувати у GitHub обліковий запис для облікового запису студента в домені @nure.ua
+6. Створити для виконання завдань з дисципліни GitHub репозиторій iз вказаним на https://dl.nure.ua іменем та з головною гілкою main
+7. Створити у корені створеного репозиторію файл README.md з вказаним далі змістом та вказані далі директорії для окремих завдань
+8. Експортувати звіт у файл у простому текстововому форматі та завантажити цей файл у директорію Pract1 у репозиторії GitHub
+9. Завантажити у вказану далі піддиректорію увесь програмний код, який розглядається у доповіді ПЗ1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3 ОПИС ВИКОНАНОЇ РОБОТИ
+
+     В рамках завдання було вивчено патерн проєктування "Стан" (State Pattern). Опрацьовано теоретичні основи патерна, його призначення, принципи роботи та області застосування. Особливу увагу приділено перевагам використання патерна, таким як спрощення коду класів, розділення відповідальностей і підвищення гнучкості програми.
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+4 ВИСНОВКИ
+     
+     У результаті виконаної роботи було поглиблено розуміння патерна проєктування "Стан". Цей патерн дозволяє об'єктам змінювати свою поведінку залежно від внутрішнього стану, що робить код більш гнучким, зрозумілим і підтримуваним. Вивчення та підготовка презентації допомогли закріпити теоретичні знання та на практиці побачити, як ефективно застосовувати патерн у реальних завданнях. Робота над темою показала важливість правильного вибору патернів для покращення архітектури програмного забезпечення.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ДОДАТОК А
+
+     Відеозапис доповіді на YouTube: https://youtu.be/J3obXmgtZUU
+0:00 - Вступ 
+0:11 - Суть патерну 
+0:26 - Проблема 
+1:36 - Рішення 
+2:10 - Аналогія з життя 
+2:33 - Структура 
+3:27 - Приклад 
+4:54 - Застосування 
+5:57 - Кроки реалізації 
+7:39 - Переваги та недоліки 
+7:58 – Висновки
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ДОДАТОК Б 
+
+Рисунок Б.1 – Титульний слайд
+
+
+Рисунок Б.2 – Суть патерна
+
+
+Рисунок Б.3 – Проблема
+
+
+Рисунок Б.4 – Продовження розгляду проблеми
+
+
+Рисунок Б.5 – Рішення
+
+
+Рисунок Б.6 – Аналогія з життя
+
+
+Рисунок Б.7 – Структура
+
+
+Рисунок Б.8 – Приклад
+
+
+Рисунок Б.9 – Приклад
+
+
+Рисунок Б.10 – Приклад
+
+
+Рисунок Б.11 – Застосування
+
+
+Рисунок Б.12 – Кроки реалізації
+
+
+Рисунок Б.13 – Переваги та недоліки
+
+
+Рисунок Б.14 – Висновки
+
+ 
+Рисунок Б.15 – Джерела інформації
+
+
+Рисунок Б.16 – Прощальний слайд
+
+
+
+
+
+ДОДАТОК В
+
+public class Document
+{
+    private string state;
+    private User currentUser;
+
+    public Document(User user)
+    {
+        currentUser = user;
+        state = "draft"; // Початковий стан
+    }
+
+    public void Publish()
+    {
+        switch (state)
+        {
+            case "draft":
+                state = "moderation";
+                break;
+            case "moderation":
+                if (currentUser.Role == "admin")
+                {
+                    state = "published";
+                }
+                break;
+            case "published":
+                // Нічого не робимо
+                break;
+        }
+    }
+
+    public string GetState()
+    {
+        return state;
+    }
+}
+
+public class User
+{
+    public string Role { get; set; }
+
+    public User(string role)
+    {
+        Role = role;
+    }
+}
+
+// Загальний інтерфейс станів
+public abstract class State
+{
+    protected AudioPlayer player;
+
+    public State(AudioPlayer player)
+    {
+        this.player = player;
+    }
+
+    public abstract void ClickLock();
+    public abstract void ClickPlay();
+    public abstract void ClickNext();
+    public abstract void ClickPrevious();
+}
+
+// Конкретний стан: LockedState
+public class LockedState : State
+{
+    public LockedState(AudioPlayer player) : base(player) { }
+
+    public override void ClickLock()
+    {
+        if (player.IsPlaying)
+            player.ChangeState(new PlayingState(player));
+        else
+            player.ChangeState(new ReadyState(player));
+    }
+
+    public override void ClickPlay()
+    {
+        // Нічого не робити
+    }
+
+    public override void ClickNext()
+    {
+        // Нічого не робити
+    }
+
+    public override void ClickPrevious()
+    {
+        // Нічого не робити
+    }
+}
+
+// Конкретний стан: ReadyState
+public class ReadyState : State
+{
+    public ReadyState(AudioPlayer player) : base(player) { }
+
+    public override void ClickLock()
+    {
+        player.ChangeState(new LockedState(player));
+    }
+
+    public override void ClickPlay()
+    {
+        player.StartPlayback();
+        player.ChangeState(new PlayingState(player));
+    }
+
+    public override void ClickNext()
+    {
+        player.NextSong();
+    }
+
+    public override void ClickPrevious()
+    {
+        player.PreviousSong();
+    }
+}
+
+// Конкретний стан: PlayingState
+public class PlayingState : State
+{
+    public PlayingState(AudioPlayer player) : base(player) { }
+
+    public override void ClickLock()
+    {
+        player.ChangeState(new LockedState(player));
+    }
+
+    public override void ClickPlay()
+    {
+        player.StopPlayback();
+        player.ChangeState(new ReadyState(player));
+    }
+
+    public override void ClickNext()
+    {
+        if (player.IsDoubleClick)
+            player.NextSong();
+        else
+            player.FastForward(5);
+    }
+
+    public override void ClickPrevious()
+    {
+        if (player.IsDoubleClick)
+            player.PreviousSong();
+        else
+            player.Rewind(5);
+    }
+}
+
+// Контекст — AudioPlayer
+public class AudioPlayer
+{
+    private State state;
+    public bool IsPlaying { get; private set; }
+    public bool IsDoubleClick { get; set; }
+
+    public AudioPlayer()
+    {
+        state = new ReadyState(this);
+        IsPlaying = false;
+    }
+
+    public void ChangeState(State newState)
+    {
+        state = newState;
+    }
+
+    // Методи взаємодії UI
+    public void ClickLock()
+    {
+        state.ClickLock();
+    }
+
+    public void ClickPlay()
+    {
+        state.ClickPlay();
+    }
+
+    public void ClickNext()
+    {
+        state.ClickNext();
+    }
+
+    public void ClickPrevious()
+    {
+        state.ClickPrevious();
+    }
+
+    // Сервісні методи
+    public void StartPlayback()
+    {
+        Console.WriteLine(" Відтворення розпочато");
+        IsPlaying = true;
+    }
+
+    public void StopPlayback()
+    {
+        Console.WriteLine(" Відтворення зупинено");
+        IsPlaying = false;
+    }
+
+    public void NextSong()
+    {
+        Console.WriteLine(" Наступна пісня");
+    }
+
+    public void PreviousSong()
+    {
+        Console.WriteLine(" Попередня пісня");
+    }
+
+    public void FastForward(int seconds)
+    {
+        Console.WriteLine($" Промотка вперед на {seconds} секунд");
+    }
+
+    public void Rewind(int seconds)
+    {
+        Console.WriteLine($" Промотка назад на {seconds} секунд");
+    }
+}
+
+// Приклад використання
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        User adminUser = new User("admin");
+        Document doc = new Document(adminUser);
+
+        Console.WriteLine($"Початковий стан: {doc.GetState()}");
+        doc.Publish();
+        Console.WriteLine($"Стан після публікації: {doc.GetState()}");
+        doc.Publish();
+        Console.WriteLine($"Стан після другої публікації: {doc.GetState()}");
+        
+        AudioPlayer player = new AudioPlayer();
+
+        player.ClickPlay();      // Стартуємо відтворення
+        player.ClickNext();      // Перемикаємо пісню
+        player.ClickLock();      // Блокуємо
+        player.ClickPlay();      // Нічого не відбувається
+        player.ClickLock();      // Розблоковуємо
+        player.ClickPlay();      // Ставимо на паузу
+    }
+}
+
+
